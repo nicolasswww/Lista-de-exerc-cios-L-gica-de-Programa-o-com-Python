@@ -9,31 +9,28 @@
 
 print("Sistema de notas acadêmicas.")
 nome = str(input("Digite o nome do aluno: "))
-turma = int(input("Diga qual a sua turma: "))
+turma = str(input("Diga qual a sua turma: "))
 materia = str(input("Digite o nome da matéria: "))
-nota = float(input("Digite a primeira nota: "))
-somaNota = nota
-qtdNota = 1
-opcao = 1
+nota = 0.0
+qtd_notas = 0
+opcao_tela = 1
 
-while opcao == 1:
-    print("Deseja adicionar mais notas?\n1 - Sim\n0 - Não")
-    opcao = int(input("Digite a opção: "))
-    
-    if opcao == 1:
-        notaNova = float(input("Digite a nota nova: "))
-        somaNota += notaNova
-        qtdNota += 1
-    elif opcao == 0:
-        if qtdNota > 0:
-            media = somaNota / qtdNota
-            print(nome," a sua média é: ", media)
-        else:
-            print("Nenhuma nota foi inserida.")
+while opcao_tela == 1:
+    opcao_tela = int(input("O que você deseja?\n[1] - Adicionar nota\n[0] - Sair\nOpção: "))
+    if opcao_tela == 1:
+        qtd_notas += 1
 
+        nova_nota = float(input(qtd_notas, "ª nota do estudante: "))
+        nota = nota + nova_nota
         
-       
-        
-    
+    else:
+        media = nota / qtd_notas
+        print("Média do estudante: ", media)
 
-    
+    if media >= 6:
+        print("Você passou!")
+
+    elif media <= 5:
+        print("Você reprovou!")
+
+
